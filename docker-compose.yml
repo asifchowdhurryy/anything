@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  aether-workspace:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aether-workspace
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

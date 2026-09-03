@@ -1,0 +1,6 @@
+{
+  "name": "Anything",
+  "description": "An all-in-one Notion-inspired workspace with modular block editing, multi-view relational databases, template library, trash recovery, and universal multi-provider AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

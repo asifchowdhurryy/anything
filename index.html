@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anything</title>
+    <meta name="description" content="An all-in-one Notion-inspired workspace with modular block editing, multi-view relational databases, template library, trash recovery, and universal multi-provider AI." />
+    <meta property="og:title" content="Anything" />
+    <meta property="og:description" content="An all-in-one Notion-inspired workspace with modular block editing, multi-view relational databases, template library, trash recovery, and universal multi-provider AI." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function() {
+        try {
+          const raw = localStorage.getItem('aether_settings');
+          const theme = raw ? JSON.parse(raw).theme : 'light';
+          const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
