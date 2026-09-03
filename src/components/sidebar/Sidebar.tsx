@@ -131,41 +131,50 @@ export const Sidebar: React.FC = () => {
 
         {/* Page Context Menu */}
         {pageMenuOpen === page.id && (
-          <div className="absolute right-2 top-7 w-36 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-lg p-1 z-30 text-xs">
-            <button
+          <>
+            <div
+              className="fixed inset-0 z-20"
               onClick={(e) => {
                 e.stopPropagation();
-                toggleFavorite(page.id);
                 setPageMenuOpen(null);
               }}
-              className="w-full flex items-center gap-2 px-2 py-1.5 rounded text-left text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-            >
-              <Star className="w-3 h-3" />
-              <span>{page.isFavorite ? 'Unfavorite' : 'Favorite'}</span>
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                duplicatePage(page.id);
-                setPageMenuOpen(null);
-              }}
-              className="w-full flex items-center gap-2 px-2 py-1.5 rounded text-left text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-            >
-              <Copy className="w-3 h-3" />
-              <span>Duplicate</span>
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                deletePage(page.id);
-                setPageMenuOpen(null);
-              }}
-              className="w-full flex items-center gap-2 px-2 py-1.5 rounded text-left text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40"
-            >
-              <Trash2 className="w-3 h-3" />
-              <span>Delete</span>
-            </button>
-          </div>
+            />
+            <div className="absolute right-2 top-7 w-36 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-lg p-1 z-30 text-xs">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleFavorite(page.id);
+                  setPageMenuOpen(null);
+                }}
+                className="w-full flex items-center gap-2 px-2 py-1.5 rounded text-left text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              >
+                <Star className="w-3 h-3" />
+                <span>{page.isFavorite ? 'Unfavorite' : 'Favorite'}</span>
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  duplicatePage(page.id);
+                  setPageMenuOpen(null);
+                }}
+                className="w-full flex items-center gap-2 px-2 py-1.5 rounded text-left text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              >
+                <Copy className="w-3 h-3" />
+                <span>Duplicate</span>
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  deletePage(page.id);
+                  setPageMenuOpen(null);
+                }}
+                className="w-full flex items-center gap-2 px-2 py-1.5 rounded text-left text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40"
+              >
+                <Trash2 className="w-3 h-3" />
+                <span>Delete</span>
+              </button>
+            </div>
+          </>
         )}
 
         {/* Nested Subpages */}

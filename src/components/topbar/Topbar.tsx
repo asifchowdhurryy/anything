@@ -163,7 +163,12 @@ export const Topbar: React.FC = () => {
           </button>
 
           {isExportMenuOpen && (
-            <div className="absolute right-0 mt-1.5 w-48 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl z-50 p-1 text-xs">
+            <>
+              <div
+                className="fixed inset-0 z-40"
+                onClick={() => setIsExportMenuOpen(false)}
+              />
+              <div className="absolute right-0 mt-1.5 w-48 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl z-50 p-1 text-xs">
               {activeViewMode === 'page' && activePage && (
                 <button
                   onClick={() => {
@@ -212,8 +217,9 @@ export const Topbar: React.FC = () => {
                 <span>Print / Save as PDF</span>
               </button>
             </div>
-          )}
-        </div>
+          </>
+        )}
+      </div>
 
         {/* Page Style Menu (Notion-style ... for typography, width, lock, TOC) */}
         {activeViewMode === 'page' && activePage && (

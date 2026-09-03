@@ -94,25 +94,31 @@ export const AskAiDialog: React.FC<AskAiDialogProps> = ({
             </button>
 
             {isModelPickerOpen && (
-              <div className="absolute right-0 mt-1 w-64 max-h-60 overflow-y-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-xl p-1 z-50 text-xs">
-                {providers.map((p) => (
-                  <div key={p.id} className="mb-1">
-                    <div className="px-2 py-0.5 text-[10px] font-semibold text-zinc-400 uppercase">{p.name}</div>
-                    {p.availableModels.map((m) => (
-                      <button
-                        key={m}
-                        onClick={() => {
-                          setActiveModel({ providerId: p.id, modelId: m, isAuto: false });
-                          setIsModelPickerOpen(false);
-                        }}
-                        className="w-full text-left px-2 py-1 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs truncate"
-                      >
-                        {m}
-                      </button>
-                    ))}
-                  </div>
-                ))}
-              </div>
+              <>
+                <div
+                  className="fixed inset-0 z-40"
+                  onClick={() => setIsModelPickerOpen(false)}
+                />
+                <div className="absolute right-0 mt-1 w-64 max-h-60 overflow-y-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-xl p-1 z-50 text-xs">
+                  {providers.map((p) => (
+                    <div key={p.id} className="mb-1">
+                      <div className="px-2 py-0.5 text-[10px] font-semibold text-zinc-400 uppercase">{p.name}</div>
+                      {p.availableModels.map((m) => (
+                        <button
+                          key={m}
+                          onClick={() => {
+                            setActiveModel({ providerId: p.id, modelId: m, isAuto: false });
+                            setIsModelPickerOpen(false);
+                          }}
+                          className="w-full text-left px-2 py-1 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs truncate"
+                        >
+                          {m}
+                        </button>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </>
             )}
           </div>
 
